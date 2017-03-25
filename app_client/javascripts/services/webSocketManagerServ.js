@@ -59,6 +59,10 @@ angular.module('multichatApp')
                     case "drawings":
                         if (obj.data.operation == 'add')
                             drawingManagement.addObject(obj.data.type, obj.data.info);
+                        else if (obj.data.operation == 'download')
+                            drawingManagement.download();
+                        else if (obj.data.operation == 'clearFigure')
+                            drawingManagement.clearObject();
                         else if (obj.data.operation == 'clearAll')
                             drawingManagement.clearObjects();
                         break;

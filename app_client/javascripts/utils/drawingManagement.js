@@ -65,9 +65,15 @@ function DrawingManagement(ws) {
     this.getSelection = function() {
         canvas.isDrawingMode = false;
     };
+    this.clearFigure = function (type, info) {
+        sendData('', '', 'clearFigure');
+    };
     this.clearAll = function(type, info) {
         sendData('', '', 'clearAll');
     };
+    this.sendDownload = function(type, info){
+        sendData('', '', 'download');
+    }
     this.addObject = function(type, info) {
         var shape;
         if(type == 'Triangle') {
@@ -84,8 +90,14 @@ function DrawingManagement(ws) {
         }
         canvas.add(shape);
     };
+    this.clearObject = function(type, info){
+        canvas.remove(canvas.getActiveObject());
+    };
     this.clearObjects = function(type, info) {
         canvas.clear();
+    };
+    this.download = function(type, info){
+        window.open(canvas.toDataURL('png'));
     };
     function sendData(type, info, operation) {
         ws.send(JSON.stringify({

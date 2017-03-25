@@ -24,4 +24,10 @@ angular.module('multichatApp')
         $scope.clearAll = function(){
             webSocketManager.drawingManagement.clearAll();
         };
+        $scope.clearFigure = function(){
+            webSocketManager.drawingManagement.clearFigure();
+        };
+        $scope.sendDownload = function(){
+            webSocketManager.drawingManagement.sendDownload();
+        };
     });

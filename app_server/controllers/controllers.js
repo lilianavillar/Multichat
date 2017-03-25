@@ -216,8 +216,10 @@ module.exports.multichat = function(req, res, next) {
             sendFiles: 'Send files and pictures',
             showEmojis: 'Show the list of available Emojis',
             clearAll: 'Clear all',
+            clearFigure: 'Clear figure',
             disable: 'Turn off playback',
             send: 'Send',
+            download: 'Download',
             commentEnter: 'Type a message here',
             modal: {
                 selectAudio: 'Select the URL of the audio you want to share',

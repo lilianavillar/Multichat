@@ -136,7 +136,11 @@ block drawings
         | &nbsp;
         button.btn.btn-default(ng-click='getSelection()') #{lang.selection}
         | &nbsp;
+        button.btn.btn-default(ng-click='clearFigure()') #{lang.clearFigure}
+            | &nbsp;
         button.btn.btn-default(ng-click='clearAll()') #{lang.clearAll}
+            | &nbsp;
+        button.btn.btn-default(ng-click='sendDownload()') #{lang.download}
         canvas#canvas
 
 block presentations
