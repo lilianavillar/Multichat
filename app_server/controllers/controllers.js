@@ -208,6 +208,7 @@ module.exports.multichat = function(req, res, next) {
             addCircle: 'Add Cricle',
             addRectangle: 'Add Rectangle',
             addTriangle: 'Add Triangle',
+            addHeart: 'Add Heart',
             pencil: 'Pencil',
             selectAudio: 'Select audio',
             selectVideo: 'Select video',

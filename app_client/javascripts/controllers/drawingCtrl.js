@@ -12,6 +12,9 @@ angular.module('multichatApp')
         $scope.addTriangle = function(){
             webSocketManager.drawingManagement.addTriangle();
         };
+        $scope.addHeart = function(){
+            webSocketManager.drawingManagement.addHeart();
+        };
         $scope.getPencil = function(){
             webSocketManager.drawingManagement.getPencil();
         };

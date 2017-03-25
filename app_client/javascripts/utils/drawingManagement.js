@@ -36,6 +36,29 @@ function DrawingManagement(ws) {
         };
         sendData('Triangle', obj, 'add');
     };
+    this.addHeart = function () {
+        var obj = {
+        points: [
+                { x: 10, y: 80 },
+                { x: 10, y: 110 },
+                { x: 30, y: 130 },
+                { x: 60, y: 130 },
+                { x: 80, y: 110 },
+                { x: 100, y: 130 },
+                { x: 130, y: 130 },
+                { x: 150, y: 110 },
+                { x: 150, y: 80 },
+                { x: 80, y: 10 }
+            ],
+        options: {
+            fill: 'pink',
+            left: 200,
+            top: 200,
+            angle: 180
+            }
+        };
+        sendData('Heart', obj, 'add');
+    };
     this.getPencil = function() {
         canvas.isDrawingMode = true;
     };
@@ -55,6 +78,9 @@ function DrawingManagement(ws) {
         }
         else if(type == 'Circle') {
             shape = new fabric.Circle(info);
+        }
+        else if(type == 'Heart') {
+            shape = new fabric.Polygon(info.points, info.options);
         }
         canvas.add(shape);
     };
