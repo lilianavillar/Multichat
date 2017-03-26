@@ -13,7 +13,7 @@ angular.module('multichatApp')
         var messagesManagement = new MessagesManagement(ws, growl);
         var geolocationManagement = new GeolocationManagement(ws, growl);
         var videoManagement = new VideoManagement(ws, growl);
-        var drawingManagement = new DrawingManagement(ws);
+        var drawingManagement = new DrawingManagement(ws, growl);
         var audioManagement = new AudioManagement(ws, growl);
         var videoconferenceManagement = new VideoconferenceManagement(ws, growl);
         var presentationManagement = new PresentationManagement(ws, growl);

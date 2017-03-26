@@ -1,7 +1,7 @@
 /**
  * Created by UO232510 on 21/03/2017.
  */
-function DrawingManagement(ws) {
+function DrawingManagement(ws, growl) {
     var canvas = new fabric.Canvas('canvas');
     canvas.setHeight(350);
     canvas.setWidth(350);
@@ -91,13 +91,25 @@ function DrawingManagement(ws) {
         canvas.add(shape);
     };
     this.clearObject = function(type, info){
-        canvas.remove(canvas.getActiveObject());
+        if (canvas.getActiveObject() == null){
+            growl.error('Please, select a figure',{
+                title: 'Error'
+            });
+        } else{
+            canvas.remove(canvas.getActiveObject());
+        }
     };
     this.clearObjects = function(type, info) {
         canvas.clear();
     };
     this.download = function(type, info){
-        window.open(canvas.toDataURL('png'));
+        if (!canvas.isEmpty()) {
+            window.open(canvas.toDataURL('png'));
+        }else{
+            growl.error('Please, enter some figure',{
+                title: 'Error'
+            });
+        }
     };
     function sendData(type, info, operation) {
         ws.send(JSON.stringify({

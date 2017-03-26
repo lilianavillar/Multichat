@@ -28,7 +28,49 @@ block content-common
                         "|| form.name.$error.maxlength") #{lang.fieldSizeCheck}
                         .glyphicon.glyphicon-warning-sign.form-control-feedback(
                         ng-show="form.name.$error.minlength || form.name.$error.maxlength")
-
+            .form-group(ng-class='((form.surnames.$touched || form.$submitted) ' +
+            '&& form.surnames.$invalid) ? "has-error has-feedback" : "has-feedback"')
+                label.control-label.col-sm-2(for='surnames') #{lang.surnames}:
+                .col-sm-3
+                    input.form-control(type='text' id='surnames' name='surnames'
+                    ng-init='profile.surnames="#{sub.surnames}"' ng-model="profile.surnames"
+                    ng-minlength='3' ng-maxlength='80')
+                    div(ng-show="form.surnames.$valid")
+                        .glyphicon.glyphicon-ok.form-control-feedback
+                    div(ng-show="form.$submitted || form.surnames.$touched")
+                        .text-danger(ng-show="form.surnames.$error.minlength " +
+                        "|| form.surnames.$error.maxlength") #{lang.fieldSizeCheck}
+                        .glyphicon.glyphicon-warning-sign.form-control-feedback(
+                        ng-show="form.surnames.$error.minlength || form.surnames.$error.maxlength")
+            .form-group(ng-class='((form.age.$touched || form.$submitted) ' +
+            '&& form.age.$invalid) ? "has-error has-feedback" : "has-feedback"')
+                label.control-label.col-sm-2(for='age') #{lang.age}:
+                .col-sm-3
+                    input.form-control(type='number' id='age' name='age'
+                    ng-init='profile.age="#{sub.age}"' string-to-number  ng-model="profile.age"
+                    ng-minlength='2' ng-maxlength='2'
+                    min='18'  max='99')
+                    div(ng-show="form.age.$valid")
+                        .glyphicon.glyphicon-ok.form-control-feedback
+                    div(ng-show="form.$submitted || form.age.$touched")
+                        .text-danger(ng-show="form.age.$error.minlength " +
+                        "|| form.age.$error.maxlength") #{lang.ageSizeCheck}
+                        .glyphicon.glyphicon-warning-sign.form-control-feedback(
+                        ng-show="form.age.$error.minlength || form.age.$error.maxlength")
+            .form-group(ng-class='((form.phone.$touched || form.$submitted) ' +
+            '&& form.phone.$invalid) ? "has-error has-feedback" : "has-feedback"')
+                label.control-label.col-sm-2(for='phone') #{lang.phone}:
+                .col-sm-3
+                    input.form-control(type='text' id='phone' name='phone'
+                    ng-init='profile.phone="#{sub.phone}"' ng-model="profile.phone"
+                    ng-minlength='9' ng-maxlength='9' ng-pattern="/^[0-9]*$/")
+                    div(ng-show="form.phone.$valid")
+                        .glyphicon.glyphicon-ok.form-control-feedback
+                    div(ng-show="form.$submitted || form.phone.$touched")
+                        .text-danger(ng-show="form.phone.$error.minlength " +
+                        "|| form.phone.$error.maxlength || form.phone.$error.pattern") #{lang.phoneSizeCheck}
+                        .glyphicon.glyphicon-warning-sign.form-control-feedback(
+                        ng-show="form.phone.$error.minlength || form.phone.$error.maxlength || form.phone.$error.pattern")
             .form-group(ng-class='((form.pwd.$touched || form.$submitted) ' +
             '&& form.pwd.$invalid) ? "has-error has-feedback" : "has-feedback"')
                 label.control-label.col-sm-2(for='pwd') #{lang.password}:

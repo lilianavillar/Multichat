@@ -1,14 +1,19 @@
 extends layout-multichat
 block people
-    div(ng-init='sub="#{sub.userName}%#{sub.name}"')
+    div(ng-init='sub="#{sub.userName}%#{sub.name}%#{sub.surnames}%#{sub.age}%#{sub.phone}"')
         div#peopleList(ng-controller='peopleCtrl')
             div(ng-if='data.loading[0] == true')
                 md-progress-circular(md-mode='indeterminate')
             div(ng-if='data.loading[0] == false' ng-cloak)
-                ul#listGroupPeople.list-group
-                li.list-group-item(ng-repeat='person in data.people')
-                    .fa.fa-user-circle.fa &nbsp;
-                    | {{person.name}}
+                ul#listGroupPeople.list-groupa
+                    li.list-group-item(ng-repeat='person in data.people')
+                        a.form-control(tooltips tooltip-template="User name: {{person.userName}} </br> " +
+                        "Surnames: {{person.surnames}} </br> " +
+                        "Age: {{person.age}} <br>" +
+                        "Phone: {{person.phone}}" tooltip-side="bottom")
+                            .fa.fa-user-circle.fa &nbsp;
+                            | {{person.name}}
+
 block messages
     div#messageList(ng-controller='messagesCtrl')
         div(ng-if='data.loading[0] == true')

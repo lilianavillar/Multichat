@@ -5,7 +5,7 @@ angular.module('multichatApp')
     .controller('peopleCtrl', function($scope, webSocketManager) {
         //Send a message to the server with the user that is connected
         var sub = $scope.sub.split("%"); //userName%name
-        webSocketManager.peopleManagement.setConnected(sub[0],sub[1]);
+        webSocketManager.peopleManagement.setConnected(sub[0],sub[1], sub[2], sub[3], sub[4]);
         $scope.data = {};
         //At the beginning there is an animation showing that the info is loading
         $scope.data.loading = webSocketManager.peopleManagement.isLoading();

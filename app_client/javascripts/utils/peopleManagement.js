@@ -34,25 +34,31 @@ function PeopleManagement(ws, growl) {
     this.isLoading = function() {
         return people.loading;
     };
-    this.setConnected = function(userName, name) {
+    this.setConnected = function(userName, name, surnames, age, phone) {
         user = { //local user
             'userName': userName,
-            'name': name
+            'name': name,
+            'surnames': surnames,
+            'age': age,
+            'phone': phone
         };
         this.addPerson(user);
-        sendData(userName, name, 'connected');
+        sendData(userName, name, surnames, age, phone, 'connected');
     };
     this.setDisconnected = function() {
         this.deletePerson(user);
-        sendData(user.userName, user.name, 'disconnected');
+        sendData(user.userName, user.name, user.surnames, user.age, user.phone, 'disconnected');
     };
-    function sendData(userName, name, operation) {
+    function sendData(userName, name, surnames, age, phone, operation) {
         ws.send(JSON.stringify({
             'section': 'people',
             'data': {
                 'operation': operation,
                 'name': name,
-                'userName': userName
+                'userName': userName,
+                'surnames': surnames,
+                'age': age,
+                'phone': phone
             }}));
     }
 }

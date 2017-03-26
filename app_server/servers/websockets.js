@@ -24,7 +24,10 @@ module.exports = function(httpsServer) {
                                 'ws': ws,
                                 'user': {
                                     'userName': obj.data.userName,
-                                    'name': obj.data.name
+                                    'name': obj.data.name,
+                                    'surnames': obj.data.surnames,
+                                    'age': obj.data.age,
+                                    'phone': obj.data.phone
                                 },
                                 'geo': {
                                     'latitude': '',
@@ -124,7 +127,10 @@ module.exports = function(httpsServer) {
                         'data': {
                             'operation': 'connected',
                             'name': cnn.user.name,
-                            'userName': cnn.user.userName
+                            'userName': cnn.user.userName,
+                            'surnames': cnn.user.surnames,
+                            'age': cnn.user.age,
+                            'phone': cnn.user.phone
                         }
                     };
                     console.log('**Sent: %s to %s', JSON.stringify(message), sentBy);
