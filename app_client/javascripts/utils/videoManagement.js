@@ -24,6 +24,12 @@ function VideoManagement(ws, growl) {
             source.src = url;
             video.load();
             video.play();
+            var context = new Webm.di.WebmContext();
+            var player = new MediaPlayer(context);
+            player.startup();
+            player.attachView(video);
+            player.setAutoPlay(true);
+            player.attachSource('http://156.35.98.21:9001/dash/manifest.mpd');
         }
     };
     function sendData(url) {

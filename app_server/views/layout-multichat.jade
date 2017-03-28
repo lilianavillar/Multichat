@@ -43,11 +43,14 @@ block content-common
                                     a(href='#drawings' data-toggle='tab') #{layoutMultichat.drawings}
                                 li
                                     a(href='#presentations' data-toggle='tab') #{layoutMultichat.presentations}
+                                li
+                                    a(href='#presentations' data-toggle='tab') #{layoutMultichat.videoAdaptativo}
                         .panel-body
                             .tab-content
                                 .tab-pane.fade.in.active#geolocation
                                     block geolocation
                                 .tab-pane.fade#drawings
                                     block drawings
-                                .tab-pane.fade#presentations
-                                    block presentations
+                                .tab-pane.fade#videoAdaptativo
+                                    block videoAdaptativo
+

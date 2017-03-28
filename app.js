@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'app_client')));
 app.use(express.static(path.join(__dirname, 'presentations')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', routesApi); //routes for the REST API (start always with /api)
 app.use('/', routesServer); //routes for the different web pages of the site

@@ -13,7 +13,8 @@ head
     link(rel='stylesheet', href='/angular-tooltips/dist/angular-tooltips.css')
     link(rel='stylesheet', href='/dropzone/dist/dropzone.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-body
+
+body(onload='startVideo("video/manifest.mpd")')
     block content-basic
     div(growl)
     script(src='/jquery/dist/jquery.min.js')
@@ -31,6 +32,8 @@ body
     script(src='/dropzone/dist/dropzone.js')
     script(src='/ng-dropzone/dist/ng-dropzone.min.js')
     script(src='/fabric.js/dist/fabric.min.js')
+    script(src='/javascript/utils/videostreaming.js')
+    script(src='/javascript/utils/dash.webm.min.js')
 
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jHHCLvQbCi0tHa3t959fGYJOtFLaLJQ')
     script(src='/config.js')

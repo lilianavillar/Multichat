@@ -21,6 +21,7 @@ var layoutMultichat = {
     presentations: 'Presentations',
     audio: 'Audio broadcast',
     video: 'Video broadcast',
+    videoAdaptativo: 'Video adaptativo',
     videoconferences: 'Videoconferences'
 };
 
